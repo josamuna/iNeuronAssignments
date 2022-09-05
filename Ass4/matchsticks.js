@@ -11,6 +11,8 @@
     matchHouses(87) ➞ 436
 */
 
+"use strict";
+
 function matchHouse(step) {
     let init = 6;
     return init += ((step - 1) * 5);

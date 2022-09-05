@@ -20,6 +20,8 @@
     where r is the radius and h is the height of the cone.
 */
 
+"use strict";
+
 class Cylinder {
     constructor(radius, height) {
         this.radius = radius;
