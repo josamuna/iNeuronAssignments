@@ -33,25 +33,25 @@ console.log(str3);
 */
 console.log("8.============================");
 let checkLowersaseFirstLetter = (inputString) => {
-    try{
-        let str = inputString.toString();
+  try {
+    let str = inputString.toString();
 
-        // Define a table with all lowercase existing letters code
-        let arr = [];
-        for(let i = 97; i <= 122; i++) {
-            arr.push(i);
-        }
-
-        // If the first letter belong to the arr Array, then is a lowercase letter, other wise it not.
-        if(arr.indexOf(str[0].charCodeAt(0)) >= 0){
-            return "The first letter is lowercase";
-        } else {
-            return "The first letter is not lowercase";
-        }
-    }catch(error){
-        return `Something went wrong, ${error.message}`;
+    // Define a table with all lowercase existing letters code
+    let arr = [];
+    for (let i = 97; i <= 122; i++) {
+      arr.push(i);
     }
-}
+
+    // If the first letter belong to the arr Array, then is a lowercase letter, other wise it not.
+    if (arr.indexOf(str[0].charCodeAt(0)) >= 0) {
+      return "The first letter is lowercase";
+    } else {
+      return "The first letter is not lowercase";
+    }
+  } catch (error) {
+    return `Something went wrong, ${error.message}`;
+  }
+};
 
 var lowerCaseChar = checkLowersaseFirstLetter("My String");
 console.log(lowerCaseChar);
@@ -93,7 +93,9 @@ let uppercaseS = S.toUpperCase();
 console.log(`a. '${S}' to uppercase value is:\n ${uppercaseS}`);
 
 let uppercaseFirstLetter = S[0].toUpperCase() + S.slice(1);
-console.log(`b. '${S}' with first character to uppercase is:\n ${uppercaseFirstLetter}`);
+console.log(
+  `b. '${S}' with first character to uppercase is:\n ${uppercaseFirstLetter}`
+);
 
 let lowercaseS = S.toLowerCase();
 console.log(`c. '${S}' to lowercase value is:\n ${lowercaseS}`);
@@ -107,24 +109,23 @@ console.log(`d. '${S}' with halved and swapped value is:\n ${newS}`);
 console.log(`e. Count the repeting characters:\n ${newS}`);
 // count number of reapeting characters in a string
 let countCharactersOfString = (input) => {
-    // Building a Set with non reapeting characters of string
-    let arrSet = new Set(input.toLowerCase());
-    //let arr = Array.from(arrSet); Converting Set to Array
-    arrSet.forEach((str) => { 
-        // Loop through each Set's element and count the repetition of character match in the string
-        let count = 0;
-        for(let i = 0; i < S.length; i++) {
-            if(str === S[i]) {
-                count++; // Increment the counter for each charactere match
-            }
-        }
-        console.log(`${str} is reapeted ${count} time`);
-    })
-}
+  // Building a Set with non reapeting characters of string
+  let arrSet = new Set(input.toLowerCase());
+  //let arr = Array.from(arrSet); Converting Set to Array
+  arrSet.forEach((str) => {
+    // Loop through each Set's element and count the repetition of character match in the string
+    let count = 0;
+    for (let i = 0; i < S.length; i++) {
+      if (str === S[i]) {
+        count++; // Increment the counter for each charactere match
+      }
+    }
+    console.log(`${str} is reapeted ${count} time`);
+  });
+};
 
 // Call counting characters function
 countCharactersOfString(S);
-
 
 let reverseS = S.split("").reverse().join("");
 console.log(`f. '${S}' reversed value is:\n ${reverseS}`);
