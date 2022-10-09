@@ -1,0 +1,15 @@
+<!-- 4. What is the error in the following code? -->
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <p class="text">Hello World!</p>
+        <script>
+            /* The error is that text is a class and not a ID, we should use document.getElementByClassName() [whith return an array] 
+               instead of document.getElementById() JavaScript inbuilt method.
+               The page will be shown but nothing will change to the paragrap
+            */
+            document.getElementsByClassName("text").innerHTML = "HI JS DOM";
+        </script>
+    </body>
+</html>

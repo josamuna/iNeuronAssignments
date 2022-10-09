@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulations</title>
+  </head>
+  <body>
+    <h2 id="text">First H2 tag</h2>
+
+    <p>This is the first paragraphe</p>
+
+    <h2 id="text">Second H2 tag</h2>
+
+    <h2 id="text">Third H2 tag</h2>
+    <p>This is the second paragraph</p>
+
+    <h2 id="text">Fourth H2 tag</h2>
+    <p>This is thre last paragraph</p>
+
+    <!-- 7. Select all the h2 tags on screen and change their colour to purple. -->
+
+    <p id="numberPar">tt</p>
+
+    <script type="text/javascript">
+      let h2Tag = document.getElementsByTagName("h2");
+      for (let h2 of h2Tag) {
+        h2.style.color = "purple";
+      }
+
+      // 8. Create a new <h4> tag on the screen using JS DOM.
+      const h4 = document.createElement("h4");
+      h4.innerHTML = "This is the H4 tag text";
+      document.getElementsByTagName("body")[0].appendChild(h4);
+
+      // 9. Remove an element from the screen using js dom.
+      const removeH2 = document.getElementsByTagName("h2")[1]; // Second H2 element
+      document.getElementsByTagName("body")[0].removeChild(removeH2);
+
+      // 10. Get the number of <p> tags on the screen using JS DOM.
+      const pTag = document.getElementsByTagName("p");
+      let paraView = document.querySelector("#numberPar");
+      paraView.innerText = "There is " + pTag.length + " Paragraphs in the web page";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!-- 5. Using JS Dom select a button and set its onclick event to
+logging hello in the console.-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulations</title>
+  </head>
+  <body>
+    <button id="btn1">Click here</button>
+  </body>
+  <script type="text/javascript">
+    const btn1 = document.querySelector("#btn1");
+    btn1.addEventListener("click", () => console.log("Hello"));
+
+    /*
+        6. Using alert, prevent a person from leaving the screen using JS DOM.
+    */
+
+    function leave(e) {
+      if (!e) e = window.event;
+
+      e.cancelBubble = true;
+      e.returnValue = "Do you want to leave?";
+
+      if (e.stopPropagation) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }
+    window.onbeforeunload = leave;
+  </script>
+</html>

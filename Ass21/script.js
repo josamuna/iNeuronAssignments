@@ -1,3 +1,8 @@
+/*
+    Author: Josue Isamuna Nkembo
+    Email : josamuna2009@gmail.com
+*/
+
 "use strict";
 // 1. Select an <h2> tag with id of text and change its inner text to "Hello World".
 let h2Text = document.querySelector("#text");
@@ -39,4 +44,4 @@ addCalculator.addEventListener("click", () => {
   } catch (error) {
     alert(`Something went wrong, ${error.message}`);
   }
-});
+});window.onbeforeunload
