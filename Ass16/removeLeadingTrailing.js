@@ -72,10 +72,10 @@ try {
   val = removeLeadingTrailing(".6"); // 0.6
   console.log(val);
 
-  val = removeLeadingTrailing(".27900"); // 0.6
+  val = removeLeadingTrailing(".27900"); // 0.279
   console.log(val);
 
-  val = removeLeadingTrailing(.27900); // 0.6
+  val = removeLeadingTrailing(0.279); // Rise error
   console.log(val);
 } catch (error) {
   console.log(`Something went wrong, ${error.message}`);

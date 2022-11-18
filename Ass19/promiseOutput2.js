@@ -14,7 +14,7 @@
 const promise = new Promise((res) => res(2));
 promise
   .then((v) => {
-    console.log(v); // 2 => Print 4
+    console.log(v); // 2 => Print 2
     return v * 2; // v = 2 * 2 = 4
   })
   .then((v) => {
@@ -26,5 +26,5 @@ promise
     return v * 2;
   })
   .then((v) => {
-    console.log(v); // 8  => Print 4
+    console.log(v); // 8  => Print 8
   });

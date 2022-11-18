@@ -22,10 +22,10 @@ async function f1(x) {
 
 f1(10).then((result) => console.log(result)); // print 40
 
-// 9. Is by alway handle the return async-await function with await keyword
+// 9. Is by always handle the return async-await function with await keyword
 
 /* 10. 
-    - When task should be executed sequentialy (Mean dependents tasks).
+    - When task should be executed sequentially (Mean dependents tasks).
     - When performing video rendering or mathematical computations (Because they require a huge usage of CPU).
     - When we are not performing I/O tasks.
 */

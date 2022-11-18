@@ -17,7 +17,8 @@
 "use strict";
 
 let isValidHexCode = (hex) => {
-  let regex = /^#[0-9\w]{6}$/; // Same to /^#[0-9a-zA-Z]{6}$/
+  // let regex = /^#[0-9\w]{6}$/; // Same to /^#[0-9a-zA-Z]{6}$/
+  let regex = /^#[0-9a-fA-F]{6}$/;
   if (regex.test(hex)) {
     return true;
   }
@@ -31,4 +32,7 @@ hexadecimalValue = isValidHexCode("#EAECEE"); // true
 console.log(hexadecimalValue);
 
 hexadecimalValue = isValidHexCode("#CD5C&C"); // false
+console.log(hexadecimalValue);
+
+hexadecimalValue = isValidHexCode("#HD5CPC"); // false
 console.log(hexadecimalValue);

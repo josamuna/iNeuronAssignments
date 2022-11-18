@@ -11,7 +11,7 @@ let iterateList = (arr) => {
   let iter = arr[Symbol.iterator](); // Create iterator object
   let res = iter.next(); // Position the iterator cursor on the first record of the iterable (Array, Set, Map or String.).
 
-  // If the iterator is not at the end yet, we loop thouht it and show values one by one.
+  // If the iterator is not at the end yet, we loop throught it and show values one by one.
   while (!res.done) {
     console.log(res.value);
     res = iter.next();

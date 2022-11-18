@@ -17,8 +17,8 @@
 "use strict";
 
 let computeSumAvg = (arrInput) => {
-  let sum = arrInput.reduce((accu, curr) => accu + curr);
-  let average = sum / arrInput.length;
+  const sum = arrInput.reduce((accu, curr) => accu + curr);
+  const average = sum / arrInput.length;
 
   console.log(`Sum of values is ${sum} and Average is ${average}`);
 };

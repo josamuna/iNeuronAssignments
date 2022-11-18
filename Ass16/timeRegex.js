@@ -16,7 +16,7 @@
 let validateTime = (strTime) => {
   // Begin with any letter (Capital or not) and space anytimes followed by two digits only between 0 and 9
   // followed by : then two digits only (Between 0 and 9), finaly any letter (Capital or not) or spaces any number of time
-  let regex = /[a-zA-Z\s]+([0-9]{2}:[0-9]{2})[a-zA-Z\s]+/;
+  let regex = /([a-zA-Z\s]+)([0-9]{2}:[0-9]{2})([a-zA-Z\s]+)/; // Three parts (Text, Time, Text)
   if (regex.test(strTime)) {
     console.log("Time match found");
   } else {

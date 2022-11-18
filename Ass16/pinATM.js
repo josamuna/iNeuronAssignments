@@ -35,3 +35,6 @@ console.log(statusPin);
 
 statusPin = validatePIN("7109"); // true
 console.log(statusPin);
+
+statusPin = validatePIN("490235"); // true
+console.log(statusPin);

@@ -13,7 +13,7 @@
 let findHappiness = (str) => {
   let regex = /happiness/i;
   if (regex.test(str)) {
-    console.log("Harray");
+    console.log("Hurray");
   } else {
     console.log("There is no happiness.");
   }

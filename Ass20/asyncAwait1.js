@@ -13,6 +13,6 @@
 
     3). Give 3 real world examples where async/await has been used?
         - Loading file's data from file system or network (from the Backend).
-        - Loadin data from API through a network (Loading data from network).
+        - Loading data from API through a network (Loading data from network).
         - Save data into a file from network or from file system (from the Backend).
 */
