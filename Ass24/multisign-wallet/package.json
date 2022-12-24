@@ -1,0 +1,14 @@
+{
+  "name": "multisign-wallet",
+  "version": "1.0.0",
+  "description": "Multisign Wallet Project (With all Tests Cases)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josue Isamuna Nkembo <josamna200@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0"
+  }
+}
