@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Josue Isamuna Nkembo <josamna200@gmail.com>",
+  "author": "Josue Isamuna Nkembo <josamna2009@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0"
