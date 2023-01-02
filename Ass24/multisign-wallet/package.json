@@ -9,6 +9,8 @@
   "author": "Josue Isamuna Nkembo <josamna2009@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^2.0.0"
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.12.5",
+    "hardhat-gas-reporter": "^1.0.9"
   }
 }

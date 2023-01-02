@@ -12,7 +12,7 @@
 
 ### `1.` Creating Project
 
-#### Creating template HardHat Project
+#### Creating template HardHat Projectn
 
 - Initialize NodeJS Project
 
@@ -113,7 +113,7 @@ npx hardhat test
 
 ### `6.` Generating Gas Report
 
-Gas report gives an overview of the cost of the project functions. It need to write the `hardhat-config.js` file with tis content
+Gas report gives an overview of the cost of the project functions. To be able to get gas report, just run the required node install command `npm install hardhat-gas-reporter --save-dev` .It need to write the `hardhat-config.js` file with tis content
 
 > Without Polygon optimization
 
