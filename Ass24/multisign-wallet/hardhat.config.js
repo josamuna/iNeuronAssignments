@@ -10,6 +10,6 @@ module.exports = {
     noColors: true,
     outputFile: "gasReportFile.txt",
     coinmarketcap: "807ae37f-4bab-4572-b60c-a2baae6e5a74",
-    // token: "matic",
+    token: "matic",
   },
 };

@@ -14,6 +14,8 @@ describe("MultiSign Wallet Tests", function () {
 
   let submitTx;
   let confirmTx;
+  let revokeConfirmedTx;
+  let executedTx;
 
   // Running this code before each test
   before(async function () {
@@ -75,7 +77,7 @@ describe("MultiSign Wallet Tests", function () {
       data
     );
     const [to, value, data_bytes, executed, numConfirmations] =
-      await wallet.transactions(0);
+      await wallet.transactions(txIndex);
     expect(to).equal(accounts[5].address);
     expect(value).to.equal(amount);
     expect(data_bytes).to.equal(data);
@@ -91,9 +93,11 @@ describe("MultiSign Wallet Tests", function () {
 
   it("Confirming transaction of certain index by the owner", async function () {
     const wallet = await multiSignContract.connect(accounts[0]);
-    const [, , , , numConfirmations_before] = await wallet.transactions(0);
+    const [, , , , numConfirmations_before] = await wallet.transactions(
+      txIndex
+    );
     confirmTx = await wallet.confirmTransaction(txIndex);
-    const [, , , , numConfirmations_after] = await wallet.transactions(0);
+    const [, , , , numConfirmations_after] = await wallet.transactions(txIndex);
 
     expect(numConfirmations_after).to.equal(numConfirmations_before.add(1));
     expect(await wallet.isConfirmed(txIndex, accounts[0].address)).to.be.true;
@@ -105,16 +109,54 @@ describe("MultiSign Wallet Tests", function () {
       .withArgs(accounts[0].address, txIndex);
   });
 
-  // it("Revoke or down vote a confirmed transaction of certain index by the owner", async function () {});
+  it("Revoke or down vote a confirmed transaction of certain index by the owner", async function () {
+    const wallet = await multiSignContract.connect(accounts[0]);
+    const [, , , , numConfirmations_before] = await wallet.transactions(
+      txIndex
+    );
+    // transaction should be already confirmed
+    expect(await wallet.isConfirmed(txIndex, accounts[0].address)).to.be.true;
+    revokeConfirmedTx = await wallet.revokeConfirmation(txIndex);
+    const [, , , , numConfirmations_after] = await wallet.transactions(txIndex);
+    expect(await wallet.isConfirmed(txIndex, accounts[0].address)).to.be.false;
+    expect(numConfirmations_after).to.equal(numConfirmations_before.sub(1));
+  });
 
-  // it("Event Revoke owner transaction", async function () {
-  //   const wallet = await multiSignContract.connect(accounts[0]);
-  //   await expect(wallet.revokeConfirmation())
-  //     .to.emit(wallet, "RevokeTransaction")
-  //     .withArgs(accounts[0].address, txIndex);
-  // });
+  it("Event Revoke owner transaction", async function () {
+    await expect(revokeConfirmedTx)
+      .to.emit(multiSignContract, "RevokeTransaction")
+      .withArgs(accounts[0].address, txIndex);
+  });
 
-  // it("Execute transaction with only required confirmation by one owner", async function () {});
+  it("Execute a confirmed transaction of a certain index by one owner", async function () {
+    /* 
+      This is not part of this test case | we simulate two confirmations from two differents accounts
+      to make this test passed. Two because, previously we have revoked a confirmed Tx et the second
+      one to meet two vote to execute transaction
+    */
+    // Begin
+    const owner1 = await multiSignContract.connect(accounts[1]);
+    owner1.confirmTransaction(txIndex); // Owner confirm Transaction
+    const owner2 = await multiSignContract.connect(accounts[0]);
+    owner2.confirmTransaction(txIndex);
+    // End - We got two Confirmations of Tx
 
-  // it("Event Execute owner transaction", async function () {});
+    const [, , , , numConfirmations] = await owner2.transactions(txIndex);
+    expect(numConfirmations).to.gte(await owner2.numConfirmationsRequired());
+    const [_to] = await owner2.transactions(txIndex); // Receiver account
+    const to_balance_before = await ethers.provider.getBalance(_to);
+
+    executedTx = await owner2.executeTransaction(txIndex);
+    const [, _value, _data, _executed] = await owner2.transactions(txIndex);
+    const to_balance_after = await ethers.provider.getBalance(_to);
+    expect(to_balance_after).to.equal(to_balance_before.add(_value));
+    expect(_data).to.equal(data);
+    expect(_executed).to.be.true;
+  });
+
+  it("Event Execute owner transaction", async function () {
+    await expect(executedTx)
+      .to.emit(multiSignContract, "ExecuteTransaction")
+      .withArgs(accounts[0].address, txIndex);
+  });
 });

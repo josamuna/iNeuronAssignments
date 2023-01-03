@@ -127,6 +127,10 @@ gasReport {
 }
 ```
 
+> The non optimized output result
+
+![gasReportWithoutOptimization](https://user-images.githubusercontent.com/15903230/210334528-50f738c1-8013-42f5-b9c4-57be3b55d1e9.PNG)
+
 > With Polygon optimization
 
 ```
@@ -139,6 +143,10 @@ gasReport {
     token: "matic"
 }
 ```
+
+> The optimized output result
+
+![gasReportWithPolygonOptimization](https://user-images.githubusercontent.com/15903230/210334681-2d895de8-57a4-4b69-b12b-603ecf809613.PNG)
 
 ### `7.` Deploying Project
 
