@@ -12,8 +12,5 @@
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "hardhat": "^2.12.5",
     "hardhat-gas-reporter": "^1.0.9"
-  },
-  "dependencies": {
-    "install": "^0.13.0"
   }
 }
