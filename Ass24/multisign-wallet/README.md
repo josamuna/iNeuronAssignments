@@ -113,7 +113,7 @@ npx hardhat test
 
 ### `6.` Generating Gas Report
 
-Gas report gives an overview of the cost of the project functions. To be able to get gas report, just run the required node install command `npm install hardhat-gas-reporter --save-dev` .It need to write the `hardhat-config.js` file with tis content
+Gas report gives an overview of the cost of the project functions. To be able to get gas report, just run the required node install command `npm install hardhat-gas-reporter --save-dev` .We need to add this content in to the `hardhat-config.js` config file
 
 > Without Polygon optimization
 
@@ -122,7 +122,7 @@ gasReport {
     enabled: true,
     currency: "USD",
     noColors: true,
-    outputFile: "gasReport.txt",
+    outputFile: "gasReportFile.txt",
     coinmarketkap: <api_key>,
 }
 ```
@@ -134,7 +134,7 @@ gasReport {
     enabled: true,
     currency: "USD",
     noColors: true,
-    outputFile: "gasReport.txt",
+    outputFile: "gasReportFile.txt",
     coinmarketkap: <api_key>,
     token: "matic"
 }
